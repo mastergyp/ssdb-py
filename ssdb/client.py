@@ -101,10 +101,15 @@ def list_to_ordereddict(lst):
     return dst
 
 
+# def list_to_int_dict(lst):
+#     return {k: int(v) for k, v in list_to_dict(lst).items()}
+
 def list_to_int_dict(lst):
-    return {k: int(v) for k, v in list_to_dict(lst).items()}
-
-
+    r = dict()
+    for k, v in list_to_dict(lst).items():
+        r[k] = int(v)
+    return r
+    
 def list_to_int_ordereddict(lst):
     dst = OrderedDict()
     for k, v in list_to_ordereddict(lst).items():
