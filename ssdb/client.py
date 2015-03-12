@@ -375,8 +375,8 @@ class StrictSSDB(object):
         >>> ssdb.expire('not_exist')
         False
         """
-        if isinstance(time, datetime.timedelta):
-            time = time.seconds + time.days * 24 * 3600        
+        if isinstance(ttl, datetime.timedelta):
+            time = ttl.seconds + ttl.days * 24 * 3600        
         return self.execute_command('expire', name, ttl)
 
     def ttl(self, name):
