@@ -489,7 +489,7 @@ class StrictSSDB(object):
         >>> ssdb.getbit('bit_test', 1)
         False
         """                        
-        offset = get_positive_integer('offset', offset)
+        offset = get_nonnegative_integer('offset', offset)
         return self.execute_command('getbit', name, offset)
 
     def setbit(self, name, offset, val):
@@ -517,7 +517,7 @@ class StrictSSDB(object):
         7        
         """                        
         val = int(get_boolean('val', val))
-        offset = get_positive_integer('offset', offset)
+        offset = get_nonnegative_integer('offset', offset)
         return self.execute_command('setbit', name, offset, val)
 
     def countbit(self, name, start=None, size=None):
